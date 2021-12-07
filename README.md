@@ -12,8 +12,6 @@ For mail sending the programm sendemail and the libarys perl libaries Net::SSLea
 * simple: Just backup a path of a mounted filesystem recursively.
 * lvm: Create a lvm snapshot and backup the files on the filesystem.
 * lvm-image: Create a lvm snapshot and backup the whole device. Suitable for bare metal restores. Can use more storage that simple or lvm, because the whole device is backed up, which can include data which is deleted in the file system. Incremental backups are also slower than than simple or lvm.
-* btrfs: Create a btrfs snapshot and backup the files on the filesystem.
-* check: Do not perform a backup, do only check the specified repo.
 
 
 ##Folder Structure
