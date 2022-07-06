@@ -20,7 +20,7 @@ function f_mail {
 		then
 			sendemail -f $MAILFROM -t $MAILTO -u "ERROR: PBS-LINUX-BACKUP $HOST $JOBNAME ON $TIMESTAMP" -m ":(" -s $MAILHOST -xu $MAILUSER -xp $MAILPASSWORD -o tls=$MAILTLS -a $LOGFILE
 		fi
-		if [ "$1" = "success" ]
+		if [ "$1" = "success" ] && [ $SENDMAILSONSUCCESS = 1 ]
 		then
 			sendemail -f $MAILFROM -t $MAILTO -u "SUCCESS: PBS-LINUX-BACKUP $HOST $JOBNAME ON $TIMESTAMP" -m ":)" -s $MAILHOST -xu $MAILUSER -xp $MAILPASSWORD -o tls=$MAILTLS -a $LOGFILE
 		fi
@@ -32,7 +32,7 @@ function f_mail {
 }
 
 function f_error {
-	f_print $1 "error"
+	f_log $1 "error"
 	f_mail "error"
 	f_cleanup
 	exit $2
