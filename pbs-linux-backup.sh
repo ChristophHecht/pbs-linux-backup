@@ -146,6 +146,12 @@ then
 	FILETYPE=pxar
 fi
 
+NS=""
+if [ -v NAMESPACE ]
+then
+	NS="--ns $NAMESPACE"
+fi
+
 #FILE PATHS
 TIMESTAMPFILE="$WORKINGDIRECTORY/timestamps/$JOBNAME"
 LOCKFILE="$WORKINGDIRECTORY/locks/$JOBNAME"
@@ -203,7 +209,7 @@ fi
 
 ##DO BACKUP
 f_log "Running Backup Job."
-$PBCLOCATION backup $JOBNAME.$FILETYPE:$BKUPPATH --verbose $PBCVERBOSE --skip-lost-and-found $PBCSKIPLOSTANDFOUND --keyfile $KEYFILE --backup-type host --backup-id $HOST   2>&1 >/dev/null | tee -a $LOGFILE
+$PBCLOCATION backup $JOBNAME.$FILETYPE:$BKUPPATH --verbose $PBCVERBOSE --skip-lost-and-found $PBCSKIPLOSTANDFOUND --keyfile $KEYFILE --backup-type host --backup-id $HOST $NS   2>&1 >/dev/null | tee -a $LOGFILE
 PBCERRORLEVEL=$PIPESTATUS
 if [ $PBCERRORLEVEL -ne 0 ]
 then
