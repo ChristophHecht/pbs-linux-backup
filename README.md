@@ -7,14 +7,14 @@ The only argument given to borg-linux-backup.sh is the name of the config file o
 For mail sending the programm sendemail and the libarys perl libaries Net::SSLeay and IO::Socket::SSL need to be installed. Under debian and ubuntu, these can be installed with "apt install sendemail libnet-ssleay-perl libio-socket-ssl-perl".
 
 
-##Supported modes for consistency:
+## Supported modes for consistency:
 
 * simple: Just backup a path of a mounted filesystem recursively.
 * lvm: Create a lvm snapshot and backup the files on the filesystem.
 * lvm-image: Create a lvm snapshot and backup the whole device. Suitable for bare metal restores. Can use more storage that simple or lvm, because the whole device is backed up, which can include data which is deleted in the file system. Incremental backups are also slower than than simple or lvm.
 
 
-##Folder Structure
+## Folder Structure
 
 The scripts creates the following folders in it's installation folder:
 
