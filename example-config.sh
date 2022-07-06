@@ -29,6 +29,9 @@ PBCVERBOSE=0
 ##Should pbc skip lost and found folders
 PBCSKIPLOSTANDFOUND=0
 
+##Should pbc backup all filesystems in path
+PBCBACKUPALLFILESYSTEMS=0
+
 
 #################
 ##BACKUP METHOD##
