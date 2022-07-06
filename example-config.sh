@@ -11,6 +11,9 @@ PBCLOCATION=proxmox-backup-client
 #Path to your PBS Repository (Refer to PBS Docs) 
 PBSREPOSITORY="myuser@pbs!myapitoken@mypbs:mystore"
 
+##Set this, if you want to backup in a specific namespace
+#NAMESPACE=""
+
 ##Set this, if your linux server does not trust your PBS Certificate
 #PBSFINGERPRINT=""
 
