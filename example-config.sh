@@ -89,3 +89,14 @@ SENDMAILS=0
 
 ##USE TLS (no/yes)
 #MAILTLS=""
+
+###########
+##Logging##
+###########
+
+## Should savelog be used for log rotation?
+USE_SAVELOG=0
+
+## How many log generations should be kept for this job?
+LOG_GENERATIONS=7
+
