@@ -32,7 +32,7 @@ function f_mail {
 }
 
 function f_error {
-	f_log $1 "error"
+	f_log "$1" "error"
 	f_mail "error"
 	f_cleanup
 	exit $2
