@@ -192,7 +192,7 @@ fi
 VERBOSE=""
 if [ $PBCVERBOSE = 1 ]
 then
-	VERBOSE="--verbose"
+	VERBOSE="--verbose 1"
 fi
 
 ##CREATE LOCKFILE
