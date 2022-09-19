@@ -189,10 +189,10 @@ then
 fi
 
 ##SET VARIABLE FOR VERBOSE
-$VERBOSE = ""
-if [ $PBCVERBOSE = 1]
+VERBOSE=""
+if [ $PBCVERBOSE = 1 ]
 then
-	$VERBOSE = "--verbose"
+	VERBOSE="--verbose"
 fi
 
 ##CREATE LOCKFILE
