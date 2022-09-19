@@ -188,6 +188,13 @@ then
         f_error "Error: Lockfile found." 3
 fi
 
+##SET VARIABLE FOR VERBOSE
+$VERBOSE = ""
+if [ $PBCVERBOSE = 1]
+then
+	$VERBOSE = "--verbose"
+fi
+
 ##CREATE LOCKFILE
 touch $LOCKFILE
 LOCKED=1
@@ -220,7 +227,7 @@ fi
 
 ##DO BACKUP
 f_log "Running Backup Job."
-$PBCLOCATION backup $JOBNAME.$FILETYPE:$BKUPPATH --verbose $PBCVERBOSE --skip-lost-and-found $PBCSKIPLOSTANDFOUND --all-file-systems $PBCBACKUPALLFILESYSTEMS --keyfile $KEYFILE --backup-type host --backup-id $HOST $NS   2>&1 >/dev/null | tee -a $LOGFILE
+$PBCLOCATION backup $JOBNAME.$FILETYPE:$BKUPPATH $VERBOSE --skip-lost-and-found $PBCSKIPLOSTANDFOUND --all-file-systems $PBCBACKUPALLFILESYSTEMS --keyfile $KEYFILE --backup-type host --backup-id $HOST $NS   2>&1 >/dev/null | tee -a $LOGFILE
 PBCERRORLEVEL=$PIPESTATUS
 if [ $PBCERRORLEVEL -ne 0 ]
 then
